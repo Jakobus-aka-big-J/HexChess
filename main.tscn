@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://2mmhrg43xxjv"]
+[gd_scene load_steps=12 format=4 uid="uid://2mmhrg43xxjv"]
 
 [ext_resource type="Script" uid="uid://j572wagqbkoe" path="res://scripts/main.gd" id="1_jpo50"]
 [ext_resource type="Texture2D" uid="uid://dqjc0f233w1b1" path="res://assets/atlases/hexagonTerrain_sheet.png" id="3_gra6f"]
+[ext_resource type="Texture2D" uid="uid://bq1sxt3t8s1x5" path="res://assets/atlases/testtiles.png" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://mft5vhwcl26" path="res://scripts/ui/ui_root.gd" id="7_612et"]
 [ext_resource type="Script" uid="uid://d13axvty14l2m" path="res://scripts/camera.gd" id="8_fyxhe"]
 
@@ -126,6 +127,36 @@ custom_data_layer_0/name = "terrain_type"
 custom_data_layer_0/type = 4
 sources/1 = SubResource("TileSetAtlasSource_rlj2k")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
+texture = ExtResource("5_lquwl")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_mode = 1
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_272bh"]
+tile_shape = 3
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_7mycd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
+texture = ExtResource("5_lquwl")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/animation_speed = 3.0
+1:0/0 = 0
+2:2/animation_frame_0/duration = 1.0
+2:2/animation_frame_1/duration = 1.0
+2:2/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/animation_frame_0/duration = 1.0
+2:0/animation_frame_1/duration = 1.0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kek77"]
+tile_shape = 3
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_5vw27")
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jpo50")
 
@@ -154,6 +185,30 @@ grow_vertical = 2
 script = ExtResource("8_fyxhe")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AAD/////AQAAAAgAAAD+/wAAAQAAAAkAAAD//wEAAQAAAAoAAAAAAP//AQABAAgAAAD//wAAAQABAAkAAAAAAAEAAQABAAoAAAABAAAAAQABAAoAAAADAAEAAQABAAoAAAACAAAAAQABAAoAAAACAP//AQABAAoAAAABAP//AQABAAoAAAAAAAAAAQACAAoAAAABAAEAAQACAAoAAAACAAEAAQACAAoAAAADAP//AQACAAoAAAACAAIAAQABAAYAAFADAAIAAQABAAYAAFAEAAEAAQABAAYAADADAAAAAQABAAYAABAEAAAAAQABAAYAAAD9/wMAAQABAAUAAAD8/wQAAQABAAYAAAD+/wMAAQACAAUAAAD9/wQAAQACAAYAAAAAAAMAAQABAAUAAAD//wQAAQABAAYAAAABAAMAAQACAAUAAAAAAAQAAQACAAYAAAD6/wMAAQABAAUAAAD5/wQAAQABAAYAAAD7/wMAAQACAAUAAAD6/wQAAQACAAYAAAABAAQAAQAEAAMAAQACAAMAAQAEAAMAAQA=")
 tile_set = SubResource("TileSet_sltcb")
+
+[node name="TileMapLayer6" type="TileMapLayer" parent="."]
+position = Vector2(-1, 9)
+tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAD+/wAAAAABAAAAAAAAAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_272bh")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAD+/wAAAAABAAAAAAAAAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_272bh")
+
+[node name="TileMapLayer4" type="TileMapLayer" parent="."]
+position = Vector2(-1, -9)
+tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAD+/wAAAAABAAAAAAAAAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_272bh")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD/////AAACAAAAAAAAAAAAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_kek77")
+
+[node name="TileMapLayer5" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(0, 10)
+tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD/////AAACAAAAAAAAAAAAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_kek77")
